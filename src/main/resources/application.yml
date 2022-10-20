@@ -3,3 +3,20 @@ management:
     web:
       exposure:
         include: '*'
+        exclude: configprops, env
+        
+  endpoint:
+    health: 
+      show-details: always
+  health:
+    defaults:
+      enabled: true
+    db:
+      enabled: true
+      
+spring:
+  datasource:
+    url: ${RDS_URL:jdbc:postgresql://localhost:5432/postgres}
+    username: ${RDS_USERNAME:postgres}
+    password: ${RDS_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
