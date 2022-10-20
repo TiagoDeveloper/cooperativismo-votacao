@@ -1,0 +1,21 @@
+version: 0.2
+phases:
+  install:
+    runtime-version:
+      java: corretto11
+  build:
+    commands:
+      - echo BUILD APPLICATION
+      - mvn compile
+      - mvn test
+  post_build:
+    commands:
+      - echo INIT POST BUILD
+      - mvn package
+      - cd target/
+      - ls -la
+artifacts:
+  files:
+    - cooperativismo-votacao-0.0.1-SNAPSHOT.jar
+  base-directory: target
+  discard-paths: yes
