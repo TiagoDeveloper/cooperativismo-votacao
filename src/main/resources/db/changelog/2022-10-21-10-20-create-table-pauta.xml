@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+	<changeSet id="2022-10-21-11-18" author="Tiago Pereira">
+		<createTable tableName="pauta">
+			<column name="id" type="int">
+				<constraints primaryKey="true" primaryKeyName="pauta_id_pk"/>
+			</column>
+			<column name="titulo" type="varchar(255)">
+				<constraints unique="true" uniqueConstraintName="pauta_titulo_unq" nullable="false"/>
+			</column>
+			<column name="descricao" type="varchar(255)">
+				<constraints nullable="true"/>
+			</column>
+			<column name="data_inicio" type="timestamp ">
+				<constraints nullable="false"/>
+			</column>
+			<column name="data_fim" type="timestamp ">
+				<constraints nullable="false"/>
+			</column>
+			
+		</createTable>
+		<addAutoIncrement tableName="pauta" columnName="id" columnDataType="int" startWith="1" incrementBy="1"/>
+		<createSequence sequenceName="hibernate_sequence" incrementBy="1" startValue="1"/>
+	</changeSet>
+
+
+
+</databaseChangeLog>
