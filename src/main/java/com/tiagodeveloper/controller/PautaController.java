@@ -1,15 +1,16 @@
 package com.tiagodeveloper.controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tiagodeveloper.dto.PageWrapper;
 import com.tiagodeveloper.dto.UsuarioDTO;
 import com.tiagodeveloper.feign.client.UsuarioClient;
 
@@ -27,9 +28,10 @@ public class PautaController {
 		response.put("value", "Pauta");
 		return ResponseEntity.ok(response);
 	}
+	
 	@GetMapping("/usuario")
-	public ResponseEntity<List<UsuarioDTO>> getusuario() {
-		var response =usuarioClient.getUsuarios();
+	public ResponseEntity<PageWrapper<UsuarioDTO>> getusuario(Pageable pageable) {
+		var response = usuarioClient.getUsuarios(pageable);
 		return ResponseEntity.ok(response);
 	}
 	
