@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.tiagodeveloper.dto.UsuarioDTO;
 
-@FeignClient(name = "usuario",url = "${usuario.client.url}")
+@FeignClient(name = "users",url = "${usuario.client.url}")
 public interface UserClient {
 
 	
-	@GetMapping("/user/{cpf}")
-	UsuarioDTO getByDocument(@PathVariable("cof") String cpf);
+	@GetMapping("/users/{cpf}")
+	UsuarioDTO getByDocument(@PathVariable("cpf") String cpf);
 	
 	
 }
