@@ -23,6 +23,6 @@ public class VotoDTO implements Serializable {
 	
 	private VotoEnum voto;
 
-	private Integer usuarioId;
+	private String documento;
 	
 }

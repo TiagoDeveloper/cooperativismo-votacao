@@ -7,8 +7,8 @@
 
 	<changeSet id="2022-10-24-09-24" author="Tiago Pereira">
 		<addUniqueConstraint
-      		columnNames="usuario_id, pauta_id"
-    		constraintName="usuario_id_pauta_id_unq"
+      		columnNames="documento, pauta_id"
+    		constraintName="documento_pauta_id_unq"
     		tableName="voto"
         />  
 	</changeSet>

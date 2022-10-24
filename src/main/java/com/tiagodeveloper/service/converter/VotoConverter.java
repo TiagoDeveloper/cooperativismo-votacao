@@ -11,7 +11,7 @@ public class VotoConverter {
 			dto.getId(),
 			PautaConverter.convert(dto.getPauta()),
 			dto.getVoto(),
-			dto.getUsuarioId()
+			dto.getDocumento()
 		);
 	}
 	
@@ -20,7 +20,7 @@ public class VotoConverter {
 			entity.getId(),
 			PautaConverter.convert(entity.getPauta()),
 			entity.getVoto(),
-			entity.getUsuarioId()
+			entity.getDocumento()
 		);
 	}
 	

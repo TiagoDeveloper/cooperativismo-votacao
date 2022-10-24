@@ -5,7 +5,7 @@ import org.springframework.cloud.openfeign.support.SpringMvcContract;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.tiagodeveloper.feign.client.UsuarioClient;
+import com.tiagodeveloper.feign.client.UserClient;
 
 import feign.Feign;
 import feign.gson.GsonDecoder;
@@ -18,11 +18,11 @@ public class FeignClientConfiguration {
 	private String url;
 
     @Bean
-    public UsuarioClient usuarioClient() {
+    public UserClient usuarioClient() {
         return  Feign.builder()
         		.contract(new SpringMvcContract())
         		.decoder(new GsonDecoder())
 				.encoder(new GsonEncoder())
-				.target(UsuarioClient.class, url);
+				.target(UserClient.class, url);
     }
 }

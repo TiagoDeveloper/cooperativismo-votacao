@@ -8,6 +8,6 @@ import com.tiagodeveloper.entity.Voto;
 @Repository
 public interface VotoRepository extends JpaRepository<Voto, Integer> {
 	
-	public Boolean existsByPautaIdAndUsuarioId(Integer pautaId, Integer usuarioId);
+	public Boolean existsByPautaIdAndDocumento(Integer pautaId, String documento);
 	
 }

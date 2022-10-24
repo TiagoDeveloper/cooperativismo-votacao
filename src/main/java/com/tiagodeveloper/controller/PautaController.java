@@ -12,18 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tiagodeveloper.dto.PautaDTO;
-import com.tiagodeveloper.dto.UsuarioDTO;
-import com.tiagodeveloper.feign.client.UsuarioClient;
-import com.tiagodeveloper.feign.wrapper.PageWrapper;
 import com.tiagodeveloper.service.PautaService;
 
 
 @RestController
 @RequestMapping("/pauta")
 public class PautaController {
-
-	@Autowired
-	private UsuarioClient usuarioClient;
 	
 	@Autowired
 	private PautaService pautaService;
@@ -38,13 +32,5 @@ public class PautaController {
 	public ResponseEntity<PautaDTO> create(@RequestBody PautaDTO pautaDTO) {
 		return new ResponseEntity<>(pautaService.create(pautaDTO), HttpStatus.CREATED);
 	}
-	
-	
-	@GetMapping("/usuario")
-	public ResponseEntity<PageWrapper<UsuarioDTO>> getusuario(Pageable pageable) {
-		var response = usuarioClient.getUsuarios(pageable);
-		return ResponseEntity.ok(response);
-	}
-	
 	
 }

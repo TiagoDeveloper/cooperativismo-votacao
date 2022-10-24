@@ -23,8 +23,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tiagodeveloper.dto.PautaDTO;
 import com.tiagodeveloper.dto.UsuarioDTO;
 import com.tiagodeveloper.dto.VotoDTO;
+import com.tiagodeveloper.enums.UserStatus;
 import com.tiagodeveloper.enums.VotoEnum;
-import com.tiagodeveloper.feign.client.UsuarioClient;
+import com.tiagodeveloper.feign.client.UserClient;
 import com.tiagodeveloper.service.PautaService;
 
 
@@ -40,7 +41,7 @@ public class VotoControllerTests {
 	private MockMvc mockMvc;
 	
 	@MockBean
-	private UsuarioClient usuarioClient;
+	private UserClient usuarioClient;
 	
 	@MockBean
 	private PautaService pautaService;
@@ -49,11 +50,9 @@ public class VotoControllerTests {
 	@Test
 	void createTest() throws Exception {
 		
-		when(usuarioClient.getById(any())).thenReturn(
+		when(usuarioClient.getByDocument(any())).thenReturn(
 			UsuarioDTO.builder()
-				.id(1)
-				.nome("Tiago Pereira")
-				.documento("38689036075")
+				.status(UserStatus.ABLE_TO_VOTE)
 			.build()
 		);
 		
@@ -70,7 +69,7 @@ public class VotoControllerTests {
 		var expectedRecord = VotoDTO.builder()
 					.pauta(PautaDTO.builder().id(1).build())
 					.voto(VotoEnum.SIM)
-					.usuarioId(1)
+					.documento("00209035021")
 				.build();
 		
 		var actualRecord = om.readValue(mockMvc.perform(post("/voto")
@@ -80,7 +79,7 @@ public class VotoControllerTests {
 	            .andExpect(jsonPath("$.id", greaterThan(0)))
 	            .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString(), VotoDTO.class);
 
-	    assertEquals(expectedRecord.getUsuarioId(), actualRecord.getUsuarioId());
+	    assertEquals(expectedRecord.getDocumento(), actualRecord.getDocumento());
 		
 	}
 

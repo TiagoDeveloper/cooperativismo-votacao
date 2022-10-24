@@ -3,6 +3,8 @@ package com.tiagodeveloper.dto;
 
 import java.io.Serializable;
 
+import com.tiagodeveloper.enums.UserStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,8 +18,6 @@ public class UsuarioDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Integer id;
-	private String nome;
-	private String documento;
+	private UserStatus status;
 
 }

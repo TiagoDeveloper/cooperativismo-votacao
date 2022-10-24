@@ -34,6 +34,6 @@ public class Voto {
 	@Enumerated(EnumType.STRING)
 	private VotoEnum voto;
 
-	private Integer usuarioId;
+	private String documento;
 
 }
