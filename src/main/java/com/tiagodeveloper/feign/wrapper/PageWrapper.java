@@ -1,4 +1,4 @@
-package com.tiagodeveloper.dto;
+package com.tiagodeveloper.feign.wrapper;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,0 +1,1 @@
+delete from pauta where id in(111,222);

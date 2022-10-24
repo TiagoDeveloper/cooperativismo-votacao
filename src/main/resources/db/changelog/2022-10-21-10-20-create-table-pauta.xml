@@ -25,7 +25,7 @@
 			
 		</createTable>
 		<addAutoIncrement tableName="pauta" columnName="id" columnDataType="int" startWith="1" incrementBy="1"/>
-		<createSequence sequenceName="hibernate_sequence" incrementBy="1" startValue="1"/>
+		<createSequence sequenceName="pauta_id_seq" incrementBy="1" startValue="1" />
 	</changeSet>
 
 
