@@ -11,4 +11,6 @@ public interface PautaService {
 	
 	public PautaDTO create(PautaDTO dto);
 
+	public PautaDTO getById(Integer id);
+
 }

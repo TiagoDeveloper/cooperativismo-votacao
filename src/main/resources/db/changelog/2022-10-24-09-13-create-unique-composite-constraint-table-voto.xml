@@ -5,9 +5,12 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
 
-  <include file="db/changelog/2022-10-21-10-20-create-table-pauta.xml" />
-  <include file="db/changelog/2022-10-23-20-01-create-table-voto.xml" />
-  <include file="db/changelog/2022-10-24-09-13-create-unique-composite-constraint-table-voto.xml" />
-
+	<changeSet id="2022-10-24-09-24" author="Tiago Pereira">
+		<addUniqueConstraint
+      		columnNames="usuario_id, pauta_id"
+    		constraintName="usuario_id_pauta_id_unq"
+    		tableName="voto"
+        />  
+	</changeSet>
 
 </databaseChangeLog>

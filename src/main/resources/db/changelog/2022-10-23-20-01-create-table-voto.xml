@@ -16,6 +16,9 @@
 			<column name="pauta_id" type="int">
 				<constraints nullable="false"/>
 			</column>
+			<column name="voto" type="varchar(10)">
+				<constraints nullable="false"/>
+			</column>
 		</createTable>
 		<addAutoIncrement tableName="voto" columnName="id" columnDataType="int" startWith="1" incrementBy="1"/>
 		<createSequence sequenceName="voto_id_seq" incrementBy="1" startValue="1"/>
