@@ -56,7 +56,7 @@ class PautaControllerTests {
 	            .andExpect(status().isOk())
 	            .andExpect(jsonPath("$.empty",equalTo(false)))
 	            .andExpect(jsonPath("$.numberOfElements",equalTo(2)))
-	            .andExpect(jsonPath("$.content[0].titulo",equalTo("Definição de arquitetura")));
+	            .andExpect(jsonPath("$.content[0].titulo",equalTo("Definicao de arquitetura")));
 		
 	}
 	
